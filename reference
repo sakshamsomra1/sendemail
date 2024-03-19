@@ -1,0 +1,153 @@
+// app.get('/api/locations', (req, res) => {
+//   let sqlQuery = "SELECT * FROM sell";
+
+//   let query = conn.query(sqlQuery, (err, results) => {
+//     if (err) throw err;
+//     res.send(results);
+//   });
+// });
+
+
+// app.get('/api/locations/flats', (req, res) => {
+//   let sqlQuery = "SELECT * FROM sell WHERE Category = 'Flats' ";
+
+//   let query = conn.query(sqlQuery, (err, results) => {
+//     if (err) throw err;
+//     res.send(results);
+//   });
+// });
+
+// app.get('/api/locations/farm', (req, res) => {
+//   let sqlQuery = "SELECT * FROM sell WHERE Category = 'Farm' ";
+
+//   let query = conn.query(sqlQuery, (err, results) => {
+//     if (err) throw err;
+//     res.send(results);
+//   });
+// });
+
+// app.get('/api/locations/house', (req, res) => {
+//   let sqlQuery = "SELECT * FROM sell WHERE Category = 'House' ";
+
+//   let query = conn.query(sqlQuery, (err, results) => {
+//     if (err) throw err;
+//     res.send(results);
+//   });
+// });
+
+// app.get('/api/locations/office', (req, res) => {
+//   let sqlQuery = "SELECT * FROM sell WHERE Category = 'Office' ";
+
+//   let query = conn.query(sqlQuery, (err, results) => {
+//     if (err) throw err;
+//     res.send(results);
+//   });
+// });
+
+// app.get('/api/locations/pent', (req, res) => {
+//   let sqlQuery = "SELECT * FROM sell WHERE Category = 'Pent' ";
+
+//   let query = conn.query(sqlQuery, (err, results) => {
+//     if (err) throw err;
+//     res.send(results);
+//   });
+// });
+
+// app.get('/api/locations/show', (req, res) => {
+//   let sqlQuery = "SELECT * FROM sell WHERE Category = 'Showroom' ";
+
+//   let query = conn.query(sqlQuery, (err, results) => {
+//     if (err) throw err;
+//     res.send(results);
+//   });
+// });
+
+// app.post("/api/items", (req, res) => {
+  
+//   const prod_name = req.body.prod_name;
+//   const category = req.body.category;
+//   const  image_path = req.body.image_path;
+//   const description = req.body.description;
+//   const price = req.body.price;
+//   const saleprice = req.body.saleprice;
+
+
+
+
+
+//     conn.query(
+//       "INSERT INTO details (prod_name, category, image_path, description, price, saleprice) VALUES (?,?,?,?,?,?)",
+//       [prod_name, category, image_path, description, price, saleprice],
+//       (err, result) => {
+//         console.log(err);
+//       }
+//     )
+// });
+
+
+// app.put('/api/items/:id', (req, res) => {
+  let sqlQuery = "UPDATE items SET title='" + req.body.title + "', body='" + req.body.body + "' WHERE id=" + req.params.id;
+
+//   let query = conn.query(sqlQuery, (err, results) => {
+//     if (err) throw err;
+//     res.send(apires(results));
+//   }); 
+// });
+
+
+// app.delete('/api/items/:id', (req, res) => {
+//   let sqlQuery = "DELETE FROM sell WHERE id=" + req.params.id + "";
+
+//   let query = conn.query(sqlQuery, (err, results) => {
+//     if (err) throw err;
+//     res.send(apires(results));
+//   });
+// });
+
+
+
+// app.post('/login', function(req, res) {
+// 	let name = req.body.name;
+// 	let password = req.body.password;
+// 	if (name && password) {
+// 		conn.query('SELECT * FROM details WHERE name = ? AND password = ?', [name, password], function(error, results, fields) {
+// 			if (error) throw error;
+// 			if (results.length > 0) {
+// 				req.session.loggedin = true;
+// 				req.session.user = results;
+//         console.log(req.session.user);
+//         res.send(results);
+        
+// 			} else {
+// 				res.send('Incorrect name and/or Password!');
+// 			}
+			
+// 		});
+// 	} else {
+// 		res.send('Please enter name and Password!');
+	
+// 	}
+// });
+
+
+
+
+// app.get('/api/items/:id', (req, res) => {
+//   let sqlQuery = "SELECT * FROM details WHERE id=" + req.params.id;
+
+//   let query = conn.query(sqlQuery, (err, results) => {
+//     if (err) throw err;
+//     res.send(apires(results));
+//   });
+// });
+
+
+
+// app.get('/api/data/:id',(req, res) => {
+//   let sqlQuery = "SELECT * FROM data WHERE id=" + req.params.id;
+
+//   let query = conn.query(sqlQuery, (err, results) => {
+//     if(err) throw err;
+//     res.send(apires(results));
+//   });
+// });

@@ -93,26 +93,28 @@ app.get('/health', (req, res) => {
  
 });
  
- 
-app.post('/api/post',upload.single('file') ,(req, res) => {
-  const {database} = req.body;
- 
-  // Construct the backup command based on the database type
+app.post('/api/post', upload.single('file'), async (req, res) => {
+  try {
+    const { database } = req.body;
 
-  const mailOptions = {
-  from: 'webmaster@plaksha.edu.in',
-  //  to: 'chandan.dubey@plaksha.edu.in',
- to: 'saksham.somra@gmail.com',
-  subject: 'Message Received',
-  text: `${database} ,backup done`,
-};
-transporter.sendMail(mailOptions);
+    // Construct the backup command based on the database type
 
+    const mailOptions = {
+      from: 'webmaster@plaksha.edu.in',
+      to: 'saksham.somra@gmail.com',
+      subject: 'Message Received',
+      text: `${database}, backup done`,
+    };
 
-  res.send("Sent")
- 
+    await transporter.sendMail(mailOptions);
+
+    res.send("Sent");
+  } catch (error) {
+    // Handle any errors that might occur during sending the email
+    console.error("Error occurred while sending email:", error);
+    res.status(500).send("Error occurred while sending email");
+  }
 });
-
 
 // const mailOptions = {
 //   from: 'webmaster@plaksha.edu.in',

@@ -101,7 +101,7 @@ app.post('/api/post', upload.single('file'), async (req, res) => {
 
     const mailOptions = {
       from: 'webmaster@plaksha.edu.in',
-      to: 'saksham.somra@gmail.com',
+      to: 'chandan.dubey@plaksha.edu.in',
       subject: 'Message Received',
       text: `${database}, backup done`,
     };

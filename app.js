@@ -101,10 +101,31 @@ app.post('/api/post', upload.single('file'), async (req, res) => {
 
     const mailOptions = {
     from: 'webmaster@plaksha.edu.in',
-    //to: 'chandan.dubey@plaksha.edu.in',
-     to: 'saksham.somra@gmail.com',
+    to: 'chandan.dubey@plaksha.edu.in',
     subject: 'Message Received',
-    html: `Backup done for ${database} running on server ${server} at ${time}, Dropbox Link <a href="${link}">${link}</a>`
+    html: `
+        <table>
+            <tr>
+                <td colspan="2" style="text-align: center; font-weight: bold;">Backup Information</td>
+            </tr>
+            <tr>
+                <td>Backup for:</td>
+                <td>${database}</td>
+            </tr>
+            <tr>
+                <td>Server:</td>
+                <td>${server}</td>
+            </tr>
+            <tr>
+                <td>Time:</td>
+                <td>${time}</td>
+            </tr>
+            <tr>
+                <td>Dropbox Link:</td>
+                <td><a href="${link}">${link}</a></td>
+            </tr>
+        </table>
+    `
 };
 
     await transporter.sendMail(mailOptions);

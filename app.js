@@ -100,11 +100,11 @@ app.post('/api/post', upload.single('file'), async (req, res) => {
     // Construct the backup command based on the database type
 
     const mailOptions = {
-      from: 'webmaster@plaksha.edu.in',
-      to: 'chandan.dubey@plaksha.edu.in',
-      subject: 'Message Received',
-      text: `${database}, backup done`,
-    };
+    from: 'webmaster@plaksha.edu.in',
+    to: 'chandan.dubey@plaksha.edu.in',
+    subject: 'Message Received',
+    html: `Backup done for ${database} running on server ${server} at ${time}, Dropbox Link <a href="${link}">${link}</a>`
+};
 
     await transporter.sendMail(mailOptions);
 

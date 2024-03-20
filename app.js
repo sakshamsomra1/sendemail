@@ -99,10 +99,12 @@ app.post('/api/post', upload.single('file'), async (req, res) => {
 
     // Construct the backup command based on the database type
 
-    const mailOptions = {
+   
+
+   const mailOptions = {
     from: 'webmaster@plaksha.edu.in',
-    // to: 'chandan.dubey@plaksha.edu.in',
-      to: 'saksham.somra@gmail.com',
+    to: 'chandan.dubey@plaksha.edu.in',
+    cc: ['saksham.somra@gmail.com', 'ayush.binjola@plaksha.edu.in'], // Add the CC recipients' email addresses here as an array
     subject: 'Message Received',
     html: `
         <table>

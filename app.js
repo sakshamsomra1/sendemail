@@ -93,7 +93,7 @@ app.get('/health', (req, res) => {
  
 });
  
-app.post('/api/post', upload.single('file'), async (req, res) => {
+app.post('/api/fail', upload.single('file'), async (req, res) => {
   try {
     const { database, server, time, link } = req.body;
 
@@ -102,6 +102,45 @@ app.post('/api/post', upload.single('file'), async (req, res) => {
    
 
    const mailOptions = {
+    from: 'webmaster@plaksha.edu.in',
+    to: 'chandan.dubey@plaksha.edu.in',
+    cc: ['saksham.somra@gmail.com', 'ayush.binjola@plaksha.edu.in'], // Add the CC recipients' email addresses here as an array
+    subject: 'Message Received',
+    html: `
+        <table>
+            <tr>
+                <td colspan="2" style="text-align: center; font-weight: bold;">Backup Information</td>
+            </tr>
+            <tr>
+                <td>Backup for:</td>
+                <td>backup failed for ${database}</td>
+            </tr>
+            <tr>
+                <td>Server:</td>
+                <td>${server}</td>
+            </tr>
+            <tr>
+                <td>Time:</td>
+                <td>${time}</td>
+            </tr>
+           
+        </table>
+    `
+};
+
+    await transporter.sendMail(mailOptions);
+
+    res.send("Sent");
+  } catch (error) {
+    // Handle any errors that might occur during sending the email
+    console.error("Error occurred while sending email:", error);
+    res.status(500).send("Error occurred while sending email");
+  }
+});
+
+
+
+const mailOptions = {
     from: 'webmaster@plaksha.edu.in',
     to: 'chandan.dubey@plaksha.edu.in',
     cc: ['saksham.somra@gmail.com', 'ayush.binjola@plaksha.edu.in'], // Add the CC recipients' email addresses here as an array

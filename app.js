@@ -95,7 +95,7 @@ app.get('/health', (req, res) => {
  
 app.post('/api/post', upload.single('file'), async (req, res) => {
   try {
-    const { database } = req.body;
+    const { database, server, time, link } = req.body;
 
     // Construct the backup command based on the database type
 

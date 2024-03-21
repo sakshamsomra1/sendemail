@@ -104,11 +104,26 @@ app.post('/api/post', upload.single('file'), async (req, res) => {
 
    let now = new Date();
 
-// Create an instance of Date object with the time zone offset for IST (Indian Standard Time)
-let istNow = new Date(now.getTime() + (5.5 * 60 * 60 * 1000)); // IST is UTC+5:30
+// Get the current UTC time in milliseconds
+let utcTime = now.getTime();
 
-// Extract the time portion with AM/PM format
-let istTime = istNow.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour12: true });
+// Calculate the offset for IST (UTC+5:30)
+let istOffset = 5.5 * 60 * 60 * 1000; // 5 hours 30 minutes in milliseconds
+
+// Adjust the current time by adding the offset for IST
+let istTime = new Date(utcTime + istOffset);
+
+// Extract hours, minutes, and AM/PM from the IST time
+let hours = istTime.getHours();
+let minutes = istTime.getMinutes();
+let ampm = hours >= 12 ? 'PM' : 'AM';
+hours = hours % 12;
+hours = hours ? hours : 12; // Handle midnight (0 hours)
+
+// Format the time string
+let istTimeString = `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
+
+
 
     // Construct the backup command based on the database type
 
@@ -116,8 +131,9 @@ let istTime = istNow.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hou
 
    const mailOptions = {
     from: 'webmaster@plaksha.edu.in',
-    to: 'chandan.dubey@plaksha.edu.in',
-    cc: ['saksham.somra@gmail.com', 'ayush.binjola@plaksha.edu.in'], // Add the CC recipients' email addresses here as an array
+    // to: 'chandan.dubey@plaksha.edu.in',
+    to: 'saksham.somra@gmail.com',
+    // cc: ['saksham.somra@gmail.com', 'ayush.binjola@plaksha.edu.in'], // Add the CC recipients' email addresses here as an array
     subject: 'Message Received',
     html: `
         <table>
@@ -134,7 +150,7 @@ let istTime = istNow.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hou
             </tr>
             <tr>
                 <td>Time:</td>
-                <td>${istTime}</td>
+                <td>${istTimeString}</td>
             </tr>
            
         </table>
@@ -159,14 +175,29 @@ app.post('/api/fail', upload.single('file'), async (req, res) => {
     const { database, server, time, link } = req.body;
 
     // Construct the backup command based on the database type
+   let now = new Date();
 
-    let now = new Date();
+// Get the current UTC time in milliseconds
+let utcTime = now.getTime();
 
-// Create an instance of Date object with the time zone offset for IST (Indian Standard Time)
-let istNow = new Date(now.getTime() + (5.5 * 60 * 60 * 1000)); // IST is UTC+5:30
+// Calculate the offset for IST (UTC+5:30)
+let istOffset = 5.5 * 60 * 60 * 1000; // 5 hours 30 minutes in milliseconds
 
-// Extract the time portion with AM/PM format
-let istTime = istNow.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour12: true });
+// Adjust the current time by adding the offset for IST
+let istTime = new Date(utcTime + istOffset);
+
+// Extract hours, minutes, and AM/PM from the IST time
+let hours = istTime.getHours();
+let minutes = istTime.getMinutes();
+let ampm = hours >= 12 ? 'PM' : 'AM';
+hours = hours % 12;
+hours = hours ? hours : 12; // Handle midnight (0 hours)
+
+// Format the time string
+let istTimeString = `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
+
+console.log('Current time in IST (with AM/PM):', istTimeString);
+
 
    
 
@@ -190,7 +221,7 @@ let istTime = istNow.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hou
             </tr>
             <tr>
                 <td>Time:</td>
-                <td>${istTime}</td>
+                <td>${istTimeString}</td>
             </tr>
            
         </table>

@@ -211,8 +211,8 @@ console.log('Current time in IST (with AM/PM):', istTimeString);
                 <td colspan="2" style="text-align: center; font-weight: bold;">Backup Information</td>
             </tr>
             <tr>
-                <td>Backup for:</td>
-                <td>backup failed for ${database}</td>
+                <td>Backup Failed for:</td>
+                <td> ${database}</td>
             </tr>
             <tr>
                 <td>Server:</td>

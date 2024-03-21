@@ -118,6 +118,22 @@ app.get('/health', (req, res) => {
 
 
 
+app.get('/api/get',(req, res) => {
+
+
+  let sqlQuery = `SELECT * FROM logs_table`;
+
+  let query = conn.query(sqlQuery, (err, results) => {
+    
+    res.send(results);
+  }); 
+  
+ 
+});
+
+
+
+
 
 
 

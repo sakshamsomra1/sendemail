@@ -102,6 +102,14 @@ app.post('/api/post', upload.single('file'), async (req, res) => {
   try {
     const { database, server, time, link } = req.body;
 
+   let now = new Date();
+
+// Create an instance of Date object with the time zone offset for IST (Indian Standard Time)
+let istNow = new Date(now.getTime() + (5.5 * 60 * 60 * 1000)); // IST is UTC+5:30
+
+// Extract the time portion with AM/PM format
+let istTime = istNow.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour12: true });
+
     // Construct the backup command based on the database type
 
    
@@ -126,7 +134,7 @@ app.post('/api/post', upload.single('file'), async (req, res) => {
             </tr>
             <tr>
                 <td>Time:</td>
-                <td>${time}</td>
+                <td>${istTime}</td>
             </tr>
            
         </table>
@@ -152,6 +160,14 @@ app.post('/api/fail', upload.single('file'), async (req, res) => {
 
     // Construct the backup command based on the database type
 
+    let now = new Date();
+
+// Create an instance of Date object with the time zone offset for IST (Indian Standard Time)
+let istNow = new Date(now.getTime() + (5.5 * 60 * 60 * 1000)); // IST is UTC+5:30
+
+// Extract the time portion with AM/PM format
+let istTime = istNow.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour12: true });
+
    
 
    const mailOptions = {
@@ -174,7 +190,7 @@ app.post('/api/fail', upload.single('file'), async (req, res) => {
             </tr>
             <tr>
                 <td>Time:</td>
-                <td>${time}</td>
+                <td>${istTime}</td>
             </tr>
            
         </table>

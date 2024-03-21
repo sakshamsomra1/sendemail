@@ -2,6 +2,7 @@ const express = require('express');
 const ejs = require('ejs');
 const cors = require('cors');
 const app = express();
+require('dotenv').config();
 const session = require('express-session')
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
@@ -46,11 +47,11 @@ app.use(express.urlencoded({ extended: true }));
 
 
 const conn = mysql.createConnection({
-  host: 'db4free.net',
-  user: 'somrasaksham', 
-  password: 'Rengoku1@',
-  database: 'jeweldata',
-  port: '3306',
+  host: 'plakshasql-plakshabackup.a.aivencloud.com',
+  user: 'process.env.DB_USER', 
+  password: 'process.env.DB_PASS',
+  database: 'plaksha',
+  port: '14379',
   insecureAuth : true
 
 });

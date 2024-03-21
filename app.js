@@ -131,9 +131,8 @@ let istTimeString = `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
 
    const mailOptions = {
     from: 'webmaster@plaksha.edu.in',
-    // to: 'chandan.dubey@plaksha.edu.in',
-    to: 'saksham.somra@gmail.com',
-    // cc: ['saksham.somra@gmail.com', 'ayush.binjola@plaksha.edu.in'], // Add the CC recipients' email addresses here as an array
+    to: 'chandan.dubey@plaksha.edu.in',
+    cc: ['saksham.somra@gmail.com', 'ayush.binjola@plaksha.edu.in'], // Add the CC recipients' email addresses here as an array
     subject: 'Message Received',
     html: `
         <table>

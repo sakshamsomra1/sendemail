@@ -40,7 +40,29 @@ app.use(cors({
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
- 
+
+
+
+
+
+const conn = mysql.createConnection({
+  host: 'db4free.net',
+  user: 'somrasaksham', 
+  password: 'Rengoku1@',
+  database: 'jeweldata',
+  port: '3306',
+  insecureAuth : true
+
+});
+
+conn.connect((err) => {
+  if (err) throw err; 
+  console.log('Mysql Connected with App...');
+});
+
+
+
+
  
 
 const processEmailQueue = async () => {

@@ -47,15 +47,6 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
-
-conn.connect((err) => {
-  if (err) throw err; 
-  console.log('Mysql Connected with App...');
-});
-
-
-
-
  
 
 const processEmailQueue = async () => {

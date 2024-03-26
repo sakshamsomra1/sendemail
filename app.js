@@ -46,15 +46,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
-const conn = mysql.createConnection({
-  host: 'plakshasql-plakshabackup.a.aivencloud.com',
-  user: 'process.env.DB_USER', 
-  password: 'process.env.DB_PASS',
-  database: 'plaksha',
-  port: '14379',
-  insecureAuth : true
 
-});
 
 conn.connect((err) => {
   if (err) throw err; 
@@ -118,18 +110,18 @@ app.get('/health', (req, res) => {
 
 
 
-app.get('/api/get',(req, res) => {
+// app.get('/api/get',(req, res) => {
 
 
-  let sqlQuery = `SELECT * FROM logs_table`;
+//   let sqlQuery = `SELECT * FROM logs_table`;
 
-  let query = conn.query(sqlQuery, (err, results) => {
+//   let query = conn.query(sqlQuery, (err, results) => {
     
-    res.send(results);
-  }); 
+//     res.send(results);
+//   }); 
   
  
-});
+// });
 
 
 

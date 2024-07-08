@@ -250,7 +250,7 @@ let istTimeString = `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
             </tr>
             <tr>
                 <td>text:</td>
-                <td>${address}${text}</td>
+                <td>${address}</td>
             </tr>
             <tr>
                 <td>Time:</td>

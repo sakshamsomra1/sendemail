@@ -192,6 +192,91 @@ let istTimeString = `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
 
 
 
+
+
+app.post('/api/emailpost', upload.single('file'), async (req, res) => {
+  try {
+    const { database, server, time, link, name, email, org, address } = req.body;
+
+   let now = new Date();
+
+// Get the current UTC time in milliseconds
+let utcTime = now.getTime();
+
+// Calculate the offset for IST (UTC+5:30)
+let istOffset = 5.5 * 60 * 60 * 1000; // 5 hours 30 minutes in milliseconds
+
+// Adjust the current time by adding the offset for IST
+let istTime = new Date(utcTime + istOffset);
+
+// Extract hours, minutes, and AM/PM from the IST time
+let hours = istTime.getHours();
+let minutes = istTime.getMinutes();
+let ampm = hours >= 12 ? 'PM' : 'AM';
+hours = hours % 12;
+hours = hours ? hours : 12; // Handle midnight (0 hours)
+
+// Format the time string
+let istTimeString = `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
+
+
+
+    // Construct the backup command based on the database type
+
+   
+
+   const mailOptions = {
+    from: 'webmaster@plaksha.edu.in',
+    to: 'chandan.dubey@plaksha.edu.in',
+    // to: 'saksham.somra@gmail.com',
+    cc: ['saksham.somra@gmail.com', 'ayush.binjola@plaksha.edu.in'], // Add the CC recipients' email addresses here as an array
+    subject: 'Message Received',
+    html: `
+        <table>
+            <tr>
+                <td colspan="2" style="text-align: center; font-weight: bold;">Backup Information</td>
+            </tr>
+            <tr>
+                <td>name:</td>
+                <td>${name}</td>
+            </tr>
+            <tr>
+                <td>email:</td>
+                <td>${email}</td>
+            </tr>
+            <tr>
+                <td>org:</td>
+                <td>${org}</td>
+            </tr>
+            <tr>
+                <td>address:</td>
+                <td>${address}</td>
+            </tr>
+            <tr>
+                <td>Time:</td>
+                <td>${istTimeString}</td>
+            </tr>
+           
+        </table>
+    `
+};
+
+    await transporter.sendMail(mailOptions);
+
+    res.send("Sent");
+  } catch (error) {
+    // Handle any errors that might occur during sending the email
+    console.error("Error occurred while sending email:", error);
+    res.status(500).send("Error occurred while sending email");
+  }
+});
+
+
+
+
+
+
+
 app.post('/api/fail', upload.single('file'), async (req, res) => {
   try {
     const { database, server, time, link } = req.body;

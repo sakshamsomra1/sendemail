@@ -151,6 +151,8 @@ let istTimeString = `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
 
    
 
+   
+
    const mailOptions = {
     from: 'webmaster@plaksha.edu.in',
     to: 'chandan.dubey@plaksha.edu.in',
@@ -223,6 +225,8 @@ let istTimeString = `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
 
     // Construct the backup command based on the database type
 
+   const addressText = `${address ? address : ''}${text ? text : ''}`;
+
    
 
    const mailOptions = {
@@ -250,7 +254,7 @@ let istTimeString = `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
             </tr>
             <tr>
                 <td>text:</td>
-                <td>${address}${text}</td>
+                <td>${addressText}</td>
             </tr>
             <tr>
                 <td>Time:</td>

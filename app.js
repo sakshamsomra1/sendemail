@@ -196,7 +196,7 @@ let istTimeString = `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
 
 app.post('/api/emailpost', upload.single('file'), async (req, res) => {
   try {
-    const { database, server, time, link, name, email, org, address } = req.body;
+    const { database, server, time, link, name, email, org, address, to, text } = req.body;
 
    let now = new Date();
 
@@ -228,7 +228,7 @@ let istTimeString = `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
    const mailOptions = {
     from: 'webmaster@plaksha.edu.in',
     // to: 'career.development@plaksha.edu.in',
-    to: 'saksham.somra@gmail.com',
+    to: ${to},
     cc: ['chandan.dubey@plaksha.edu.in'], // Add the CC recipients' email addresses here as an array
     subject: 'Message Received',
     html: `
@@ -250,7 +250,7 @@ let istTimeString = `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
             </tr>
             <tr>
                 <td>text:</td>
-                <td>${address}</td>
+                <td>${address}${text}</td>
             </tr>
             <tr>
                 <td>Time:</td>

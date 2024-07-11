@@ -384,10 +384,10 @@ let istTimeString = `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
                                 <th class="w-50 ">Message</th>
                             </thead>
                             <tbody>
-                                <td class=" mr-5" style="padding: 30px !important;">{$name}</td>
-                                <td class="p-5" style="padding: 30px !important;">{$email}</td>
-                                <td class=" mr-5" style="padding: 30px !important;">{$org}</td>
-                                <td class="p-5" style="padding: 30px !important;">{$text}</td>
+                                <td class=" mr-5" style="padding: 30px !important;">${name}</td>
+                                <td class="p-5" style="padding: 30px !important;">${email}</td>
+                                <td class=" mr-5" style="padding: 30px !important;">${org}</td>
+                                <td class="p-5" style="padding: 30px !important;">${text}</td>
                             </tbody>
                           </table>
                         </td>

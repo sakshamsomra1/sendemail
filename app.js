@@ -352,6 +352,171 @@ console.log('Current time in IST (with AM/PM):', istTimeString);
 
 
 
+app.get('/api/data', (req, res) => {
+    const data = {
+    "entity": "monthly-emi",
+    "event": "emi.disbursed",
+    "timestamp": "22-04-2024 18:59:36",
+    "reference_id": "NDI300100",
+    "application_details": {
+        "code": "GQEMI-DUMMY12345",
+        "ID": 1838269,
+        "created_on": "19-04-2024 11:25:32"
+    },
+    "student_details": {
+        "code": "90b3879b-c0f5-4d42-ac53-1a2578751b6c",
+        "group": "Plaksha Inhouse",
+        "institute": "Plaksha University",
+        "location": "Mohali",
+        "education_type": "NA",
+        "class": "Class IX",
+        "academic_year": "2023-2024",
+        "first_name": "Divya",
+        "middle_name": "Rajesh",
+        "last_name": "Malhotra",
+        "student_uuid": "SCS97141000",
+        "type": "EXISTING"
+    },
+    "fee_details": {
+        "amount": 95424,
+        "plan_name": "Plaksha University - 10 EMIs (AY 2024-2025)",
+        "tenure": 10,
+        "interest_rate": 0,
+        "processing_rate": 0,
+        "discount_rate": 3,
+        "fee_details_split": [
+            {
+                "code": "1ea6fa7d-e5d3-416a-9e89-26bcee008151",
+                "fee_type_name": "payable_fee_0",
+                "fee_type_code": "a2e01ce4-3ebd-42c8-99d2-727bb7369871",
+                "amount": 95424,
+                "concession": 0,
+                "discount_rate": 3,
+                "discount_amount": 2863
+            },
+            {
+                "code": "a527b798-8ddd-43a6-acba-1ae2efbf4745",
+                "fee_type_name": "payable_fee_1",
+                "fee_type_code": "29bf7018-f1e6-4004-9a70-55a699a67c4e",
+                "amount": 0,
+                "concession": 0,
+                "discount_rate": 3,
+                "discount_amount": 0
+            },
+            {
+                "code": "e996c4a2-9ebc-4526-bb90-d11a60691e2a",
+                "fee_type_name": "payable_fee_2",
+                "fee_type_code": "84d9b89c-9952-497b-adb0-c0fa8f991074",
+                "amount": 0,
+                "concession": 0,
+                "discount_rate": 3,
+                "discount_amount": 0
+            },
+            {
+                "code": "9191de74-ecfb-4daa-984d-d0ff06df2a5e",
+                "fee_type_name": "payable_fee_3",
+                "fee_type_code": "997475d4-f3ca-4df2-8aab-57ad3709a60a",
+                "amount": 0,
+                "concession": 0,
+                "discount_rate": 3,
+                "discount_amount": 0
+            },
+            {
+                "code": "e9fe3e53-2d54-48ad-b880-916abfe391b9",
+                "fee_type_name": "payable_fee_4",
+                "fee_type_code": "918d37bd-55b6-445b-a381-91f4b586ac32",
+                "amount": 0,
+                "concession": 0,
+                "discount_rate": 3,
+                "discount_amount": 0
+            },
+            {
+                "code": "2559f4e7-d68e-4df0-b208-127d0f0e8ce7",
+                "fee_type_name": "payable_fee_5",
+                "fee_type_code": "2e6a930b-95c4-464f-aa63-fdbaf3fbffd0",
+                "amount": 0,
+                "concession": 0,
+                "discount_rate": 3,
+                "discount_amount": 0
+            }
+        ],
+        "discount_amount": 2863,
+        "retention_amount": 27769,
+        "disbursed_amount": 64793
+    },
+    "customer_details": {
+        "code": "6df641e7-25a9-4715-87fa-6cf0e244ad48",
+        "first_name": "Rajesh",
+        "middle_name": "Ashokrao",
+        "last_name": "Malhotra",
+        "mobile": "6302520629",
+        "email": "Malhotra@gmail.com",
+        "pan": "AHKPN7715J",
+        "dob": "1981-08-15",
+        "gender": "FEMALE"
+    },
+    "merchant_details": {
+        "merchant_id": "GQ-ef4688e5-0830-4f52-aa92-67bae23c2785"
+    },
+    "unique_master_bank_details": {
+        "account_number": "911010059946739",
+        "ifsc": "UTIB0001017",
+        "account_holder_name": "Mr Rajesh Malhotra",
+        "bank_name": "Development Bank of India",
+        "branch_name": "Juhu Branch",
+        "account_type": "SAVINGS"
+    },
+    "disbursement_details": {
+        "amount": 95424,
+        "date": "20-04-2024",
+        "utr": "AXISP00492717262",
+        "disbursed_amount": 64793,
+        "discount_rate": 3,
+        "discount_amount": 2863,
+        "retention_rate": 30,
+        "retention_amount": 27769,
+        "discount_gst_rate": 0,
+        "discount_gst_amount": 0,
+        "split_disbursement_details": []
+    },
+    "downpayment_details": {
+        "label": "EMI 1",
+        "due_date": "19-4-2024",
+        "amount": 9543,
+        "balance_amount": 0,
+        "paid_amount": 9543,
+        "is_complete": true,
+        "overdue_days": 0,
+        "overdue_amount": 0
+    },
+    "udf_details": {
+        "udf_1": null,
+        "udf_2": null,
+        "udf_3": null,
+        "udf_4": null,
+        "udf_5": null,
+        "udf_6": null,
+        "udf_7": null,
+        "udf_8": null,
+        "udf_9": null,
+        "udf_10": null
+    },
+    "notes": {
+        "program": "B.Tech",
+        "Course": "Computer Science",
+        "year/semester": "2023-2024",
+        "platform": "Online",
+        "class": "Class IX",
+        "location": "Mohali",
+        "total_due": 30,
+        "total_net_due": "0"
+    }
+};
+
+    res.json(data); // Send JSON response
+});
+
+
 // const mailOptions = {
 //   from: 'webmaster@plaksha.edu.in',
 //    to: 'chandan.dubey@plaksha.edu.in',

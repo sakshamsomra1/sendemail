@@ -232,7 +232,7 @@ let istTimeString = `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
    const mailOptions = {
     from: 'webmaster@plaksha.edu.in',
     // to: 'career.development@plaksha.edu.in',
-    to: 'ayush.binjola@plaksha.edu.in',
+    to: to,
     cc: ['chandan.dubey@plaksha.edu.in'], // Add the CC recipients' email addresses here as an array
     subject: 'Message Received',
     html: `
@@ -387,7 +387,7 @@ let istTimeString = `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
                                 <td class=" mr-5" style="padding: 30px !important;">${name}</td>
                                 <td class="p-5" style="padding: 30px !important;">${email}</td>
                                 <td class=" mr-5" style="padding: 30px !important;">${org}</td>
-                                <td class="p-5" style="padding: 30px !important;">${text}</td>
+                                <td class="p-5" style="padding: 30px !important;">${addressText}</td>
                             </tbody>
                           </table>
                         </td>

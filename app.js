@@ -227,6 +227,14 @@ let istTimeString = `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
 
    const addressText = `${address ? address : ''}${text ? text : ''}`;
 
+   let clickhere = "";
+
+   if(to == "info.cleanenergy@plaksha.edu.in"){
+    clickhere = "https://plaksha.edu.in/center-for-clean-energy";
+   } else if(to == "career.development@plaksha.edu.in"){
+    clickhere = "https://plaksha.edu.in/corporate-partnerships-careers";
+   }
+
    
 
    const mailOptions = {
@@ -370,7 +378,7 @@ let istTimeString = `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;">New submission from link <a href="https://plaksha.edu.in/corporate-partnerships-careers">Click here</a></p>
+                            <p style="margin: 0;">New submission from link <a href=${clickhere}>Click here</a></p>
                         </td>
                     </tr>
                  <!-- COPY -->
